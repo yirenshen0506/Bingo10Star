@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827"><link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg"><link rel="stylesheet" href="assets/style.css">
+<title>賓果賓果 10 星分析工具</title>
+</head>
+<body>
+<header><div class="wrap"><h1>賓果賓果 10 星</h1><p>歷史統計・單組推薦・回測</p></div></header>
+<main class="wrap">
+<section class="panel"><h2>手動推薦</h2><p class="muted">每次按下按鈕產生一組 10 個號碼。統計最近 30、100、300 期資料。</p>
+<button id="recommend">產生一組推薦</button><div id="numbers" class="numbers">尚未產生</div><p id="reason" class="muted"></p></section>
+<section class="panel"><h2>歷史資料</h2><p>請匯入 CSV 或 JSON 開獎資料。建議每期一列，欄位包含期別與 20 個開獎號碼；也可直接貼上每期號碼。</p>
+<textarea id="paste" rows="4" placeholder="每期一行，例如：01,05,08,12,....（每期20個號碼）"></textarea>
+<div class="actions"><button id="importText">匯入貼上的資料</button><label class="file">匯入 CSV / JSON<input id="file" type="file" accept=".csv,.json,text/csv,application/json"></label><button class="secondary" id="export">匯出備份 JSON</button></div>
+<p id="dataCount" class="muted">目前資料：0 期</p><div id="stats"></div></section>
+<section class="panel"><h2>推薦紀錄</h2><div id="history" class="muted">尚無紀錄</div></section>
+<section class="panel"><h2>簡易歷史回測</h2><p class="muted">以每一期之前已存在的資料產生推薦，再與該期開獎號碼比對；樣本不足時會跳過。回測僅供研究，不代表未來命中率。</p><button id="backtest" class="secondary">執行回測</button><div id="backtestResult"></div></section>
+<p class="disclaimer">提醒：賓果賓果開獎具隨機性，歷史頻率不會提高或保證未來中獎機率。請理性娛樂。</p>
+</main><script src="assets/app.js"></script><script>if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});</script>
+</body></html>
